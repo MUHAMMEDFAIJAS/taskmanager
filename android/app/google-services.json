@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "526347371841",
+    "firebase_url": "https://taskmanager-dc86f-default-rtdb.firebaseio.com",
+    "project_id": "taskmanager-dc86f",
+    "storage_bucket": "taskmanager-dc86f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526347371841:android:575b154b45b0c1719fcdc0",
+        "android_client_info": {
+          "package_name": "com.example.taskmanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF7hsCbxsr_aX2U_jvXICAB68mIRauqaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
