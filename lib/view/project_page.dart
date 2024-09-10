@@ -23,10 +23,11 @@ class _ProjectPageState extends State<ProjectPage> {
     super.initState();
     _projectStream = widget.projectService.getProjectsStream();
     _searchStream = widget.projectService.searchProjects('');
-    
+
     _searchController.addListener(() {
       setState(() {
-        _searchStream = widget.projectService.searchProjects(_searchController.text);
+        _searchStream =
+            widget.projectService.searchProjects(_searchController.text);
       });
     });
   }
@@ -134,7 +135,6 @@ class _ProjectPageState extends State<ProjectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Projects'),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(56.0),
           child: Padding(
@@ -144,7 +144,6 @@ class _ProjectPageState extends State<ProjectPage> {
               decoration: InputDecoration(
                 hintText: 'Search by project name',
                 filled: true,
-                fillColor: Colors.green.shade100, 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide.none,
@@ -179,7 +178,7 @@ class _ProjectPageState extends State<ProjectPage> {
               return Container(
                 margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(202, 101, 224, 110), 
+                  color: Color.fromARGB(202, 101, 224, 110),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: ListTile(
@@ -211,7 +210,7 @@ class _ProjectPageState extends State<ProjectPage> {
         onPressed: _addProject,
         child: Icon(Icons.add),
         tooltip: 'Add Project',
-        backgroundColor: Color.fromARGB(202, 101, 224, 117), 
+        backgroundColor: Color.fromARGB(202, 101, 224, 117),
       ),
     );
   }

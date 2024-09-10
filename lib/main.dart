@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:taskmanager/firebase_options.dart';
+import 'package:taskmanager/view/home_page.dart';
 import 'package:taskmanager/view/splash_screen.dart';
 
 void main() async {
@@ -8,26 +9,38 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _isDarkMode = false;
+
+  void _toggleTheme() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'task manager app',
+      title: 'Task Manager App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.red,
         brightness: Brightness.dark,
       ),
-      home: SplashScreen(),
+      themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: Homescreen(
+        toggleTheme: _toggleTheme,
+      ),
     );
   }
 }
